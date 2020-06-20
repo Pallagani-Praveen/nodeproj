@@ -1,0 +1,32 @@
+
+@media only screen and (max-width:400px){
+    #pc_view{
+        display: none;
+    }
+}
+
+@font-face{
+    font-family: userfont;
+    src:url(/fonts/MetalMania-Regular.ttf);
+}
+
+label{
+    font-size: 18px;
+    color:white;
+}
+.title,label{
+    font-family: userfont;
+}
+
+#pic{
+    opacity:0;
+    position: absolute;
+    z-index: -1;
+}
+
+label[for="pic"]{
+    cursor: pointer;
+}
+
+
+

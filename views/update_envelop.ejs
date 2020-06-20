@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Envelop</title>
+    <%- include('partials/styling')  %> 
+    <link rel="stylesheet" href="/styles/update_envelop.css">
+</head>
+<body class="bg-secondary text-light">
+
+    
+
+   <div class="container mt-3">
+    <center><span class="h2 p-5 title">Update Envelop</span></center>
+
+       <form action="/update-envelop" method="POST" class="m-3 p-5 border border-primary" id="form">
+            <input type="text" value=<%= user.id  %> name="id" hidden>
+            <label for="toaddress">toAddress</label>
+            <input type="text" name="toaddress" value=<%= user.toaddress %> class="form-control">
+            <label for="key">Key</label>
+            <input type="text" name="key" value=<%= user.key %> class="form-control">
+            <label for="secretkey">SecretKey</label>
+            <input type="text" name="secretkey" value=<%= user.secretkey %>  class="form-control">
+            
+            <input type="submit" value="save" class="btn btn-success mt-2" id="mul-btn">
+            <a href="/" class="btn btn-primary mt-2" id="cancel">Cancel</a>
+            
+       </form>
+   </div> 
+   <%- include('partials/scripts')  %>
+   <script src="/utility_js/update_envelop.js"></script> 
+
+</body>
+</html>

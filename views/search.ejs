@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('partials/styling') %> 
+    <title>Search Page</title>
+    <style>
+        
+        body{
+            background-color: #6B5B95;
+            /* background-color: #DFCFBE; */
+        }
+        @media screen and (min-width: 601px){
+             .mobile_view{
+            display: none;
+            } 
+            .mobile_collapse{
+                display: none;
+            }
+            .pc_view{
+                display: inline-flex;
+            }
+        }
+        @media screen and (max-width:600px){
+            .pc_view{
+                display: none;
+            }
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar')  %> 
+
+    <div class="container mt-3">
+    <% if(result.length==0){ %>
+        <h4 class="text-danger"> Search : <%= search %>... </h4>
+        <ul class="text-light">
+            <li>try using much clear query</li>
+            <li>try using keywords</li>
+            <li>check for spelling mistakes</li>
+        </ul>
+    <% } else {%>
+        <h4 class="text-light">Results : <%= result.length %> found for '<%= search  %>' <small>in <%= exc_time  %>  sec ...</small>  </h4> 
+    <% } %>   
+    </div>
+
+    <div class="container">
+        
+    <% for(var i=0;i<result.length;i++){ %>
+        
+        <div class="card mt-2 ml-2 pc_view" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong style="color:green">ToAddress : </strong><%= result[i].toaddress %> </li>
+              <li class="list-group-item"><strong style="color:green">Key : </strong><%= result[i].key %></li>
+              <li class="list-group-item"><strong style="color:green">Security Key : </strong><%= result[i].secretkey %></li>
+            </ul>
+        </div>
+
+        
+            <a class="btn btn-primary mobile_view mt-2 ml-2" data-toggle="collapse" href="#envelop<%=i%> " role="button" aria-expanded="false" aria-controls="collapseExample">
+                <%= result[i].toaddress %> 
+            </a>
+            <div class="collapse mobile_collapse" id="envelop<%=i%> ">
+                <div class="card card-body">
+                 <p>
+                    <strong style="color:green">ToAddress : </strong><%= result[i].toaddress %> <br>
+                    <strong style="color:green">Key : </strong><%= result[i].key %> <br>
+                    <strong style="color:green">Security Key : </strong><%= result[i].secretkey %>
+                 </p>
+                </div>
+            </div>
+        
+    <% } %>  
+    </div>
+    <%- include('partials/scripts') %> 
+    <script src="/utility_js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <%- include('partials/styling')  %> 
+    <link rel="stylesheet" href="/styles/profile.css">
+</head>
+<body class="bg-secondary">
+
+    <!-- Button trigger modal -->
+    <center class="mt-5 h1 text-light title ">Profile of <%= user.username  %> </center>
+    
+    <div class="d-flex justify-content-center border container" id="pc_view">
+        <!-- border border-light -->
+       <div class="m-5 ">
+           <img src="/images/default-profile-picture.png" width="200" height="230" alt="Image Not Found"><br><br>
+           <label for="pic">Browse Pic...</label>
+           <input type="file" name="pic" id="pic">
+        </div>
+   
+    <div class="form-group  m-5 ">
+        <form action="/update-profile" method="POST">
+            <input type="text" name="id" value=<%= user.id  %> hidden>
+            <label for="UserName">UserName :</label>
+            <input type="text" value=<%= user.username %> class="form-control" name="username" readonly>
+            
+            <label for="Email" >Email :</label>
+            <input type="email" value=<%= user.email %> class="form-control" name="email" readonly>
+            
+            <label for="Passord" >Password :</label>
+            <div class="passwd d-flex">
+            <input id="passwd" type="password" value=<%= user.password %> class="form-control" name="password" readonly>
+            <i class="fa fa-eye text-light m-auto pl-3" aria-hidden="true" style="font-size:20px;" data="<%= user.password %>,<%= user.salt  %> "  id="visible"></i>
+            <i class="fa fa-eye-slash text-light m-auto pl-3" aria-hidden="true" style="font-size:20px;" id="hide"></i>
+            </div>
+
+            <div class="custom-control custom-switch mt-2">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Enable Editing</label>
+                <br>
+
+                <input type="submit" value="Save" class="btn btn-success mr-1">
+                <a href="/" class="btn btn-primary">Home</a>
+            </div>
+        </form>
+    </div>
+    
+    </div>
+
+    <div class="mobile_view">
+
+    </div>
+    
+    <%- include('partials/scripts')  %> 
+    <script src="/utility_js/profile.js"></script>
+</body>
+</html>
+
+
+

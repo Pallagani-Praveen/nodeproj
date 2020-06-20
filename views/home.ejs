@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <%- include('partials/styling') %> 
+    <link rel="stylesheet" href="/styles/home.css">
+    <title>One2Many</title>
+
+  </head>
+  <body>
+      
+    <%- include('partials/navbar')  %> 
+  
+    
+   
+  <!-- Modal to Create a new Envelop -->
+        <div class="modal fade" id="newEnvelop" tabindex="-1" role="dialog" aria-labelledby="newEnvelop" aria-hidden="true"> -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-light">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create New Envelop</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            <form action="/submit-data" method="POST" id="envelop_data">
+                <div class="modal-body form-group">
+                    <label for="toAddress">To Address</label>
+                    <small>(Example : Place the name of the website here...)</small>
+                    <input type="text" class="form-control" id="toaddress" name="toaddress">
+                    <small id="toaddress_small"></small>
+                    <br>
+
+                    <label for="ukey">Key</label>
+                    <small>(Example : Place the username/phone number/email address here...)</small>
+                    <input type="text" class="form-control" id="ukey" name="ukey">
+                    <small id="ukey_small"></small>
+                    <br>
+
+                    <label for="upassword">Password</label>
+                    <small>(Example : Enter your security key here...)</small>
+                    <input type="password" class="form-control" id="upwd" name="upwd">
+                    <small id="upwd_small"></small>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="Submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div> 
+
+
+
+<!-- messages alert box -->
+            <% if(message && message.length!=0) { %> 
+            <div class="alert alert-warning alert-dismissible fade show my-1" role="alert">
+                <strong>Error Message</strong> : <%= message %> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <% } %> 
+            
+<!-- all envelops are starting from here -->
+             <% if(allenvelops!=null) {%>
+                <div class="list-group">
+             <% for(var i=0;i<allenvelops.length;i++){ %> 
+                <div class="alert mb-0 envelop text-light border border-top-0" role="alert">
+                    This Envelop was pointing to the data of  <a href="#" class="alert-link ">
+                        <strong class="text-warning"><%= allenvelops[i].toaddress %></strong>
+                    </a>. Give it a click if you want !!!
+
+                    
+                   <a href="/delete-envelop?envelop_id=<%= allenvelops[i]._id %>"><i class="fa fa-trash-o float-right ml-4 text-light" style="font-size:24px"></i></a>
+                   <a href="/update-envelop?envelop_id=<%= allenvelops[i]._id  %> "><i class="fa fa-pencil float-right ml-4 text-light" style="font-size:24px" ></i></a>
+                   <a class="open_envelop" data=<%= allenvelops[i]._id %>>
+                        <i class="fa fa-eye float-right" style="font-size:24px"></i>
+                   </a>
+
+                </div>
+             <% } %> 
+                </div>
+             <% } %>  
+        
+        <span id="new-btn" class="px-2 py-2 btn btn-primary" data-toggle="modal" data-target="#newEnvelop"> New </span>
+        <%- include('partials/scripts')  %> 
+        <script src="/utility_js/home.js"></script>
+   
+</body>
+</html>

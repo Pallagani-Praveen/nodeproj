@@ -1,0 +1,65 @@
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>signup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%- include('partials/styling')  %> 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="/styles/signup.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Signup for One2Many</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="/auth/signup" id="signupform"  method="POST">
+                    <input class="text mb-4" type="text" name="username" placeholder="Username" required="">
+                    <small id="username_small"></small>
+                    <input type="email" class="text mb-4" name="email" placeholder="Email" required="">
+					<input class="text" type="password" name="password1" placeholder="Password" required="">
+                    <input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
+                    <small id="password_samll"></small>
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+				<p>Already have an Account? <a href="/auth/login"> Login Now!</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2020 one2many org. | Design by chikki</p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+    <!-- //main -->
+    <%- include('partials/scripts')  %> 
+    <script src="/utility_js/signup.js"></script>
+</body>
+</html>

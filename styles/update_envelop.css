@@ -1,0 +1,13 @@
+label{
+    font-family: userfont;
+    font-size: 25px;
+}
+
+.title{
+    font-family: userfont;
+
+}
+@font-face{
+    font-family: userfont;
+    src:url(/fonts/MetalMania-Regular.ttf);
+}
