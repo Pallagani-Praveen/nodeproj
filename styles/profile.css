@@ -1,9 +1,4 @@
 
-@media only screen and (max-width:400px){
-    #pc_view{
-        display: none;
-    }
-}
 
 @font-face{
     font-family: userfont;
@@ -26,6 +21,10 @@ label{
 
 label[for="pic"]{
     cursor: pointer;
+}
+
+#main{
+    flex-wrap: wrap;
 }
 
 
