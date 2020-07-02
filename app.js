@@ -12,6 +12,7 @@ const protectprofile  =  require('./utility_js/middleware/protectprofile');
 var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
 var app = express();
+
 mongoose.connect('mongodb://localhost:27017/one2many',{ useNewUrlParser: true },()=>{
     console.log('Connected to database');
 });
@@ -222,6 +223,6 @@ app.get('/find-password',(req,res)=>{
 });
 
 
-app.listen(3000,()=>{
+app.listen('https://onetwomany.herokuapp.com/',()=>{
     console.log('server started on port 3000');
 });
