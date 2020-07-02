@@ -13,7 +13,10 @@ var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/one2many',{ useNewUrlParser: true },()=>{
+// mongoose.connect('mongodb://localhost:27017/one2many',{ useNewUrlParser: true },()=>{
+//     console.log('Connected to database');
+// });
+mongoose.connect('mongodb://herolu_wcw864:Praveen jp2@ds255107.mlab.com:55107/heroku_16wcw864',()=>{
     console.log('Connected to database');
 });
 
