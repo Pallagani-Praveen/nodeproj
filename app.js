@@ -223,6 +223,6 @@ app.get('/find-password',(req,res)=>{
 });
 
 
-app.listen('https://onetwomany.herokuapp.com/',()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log('server started on port 3000');
 });
