@@ -16,8 +16,14 @@ var app = express();
 // mongoose.connect('mongodb://localhost:27017/one2many',{ useNewUrlParser: true },()=>{
 //     console.log('Connected to database');
 // });
-mongoose.connect('mongodb://heroku_16wcw864:Praveen jp2@ds255107.mlab.com:55107/heroku_16wcw864',()=>{
+mongoose.connect(process.env.MONGODB_URI,{ useUnifiedTopology: true },(err)=>{
+    if(err){
+        console.log(process.env.MONGODB_URI);
+        console.log(err);
+    }
+    else{
     console.log('Connected to database');
+    }
 });
 
 
