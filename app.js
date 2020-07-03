@@ -17,8 +17,9 @@ var app = express();
 //     console.log('Connected to database');
 // });
 mongoose.connect(process.env.MONGODB_URI,{ useUnifiedTopology: true },(err)=>{
+    console.log(process.env.MONGODB_URI);
     if(err){
-        console.log(process.env.MONGODB_URI);
+       
         console.log(err);
     }
     else{
