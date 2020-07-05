@@ -12,6 +12,7 @@ router.get('/signup',(req,res)=>{
 router.post('/signup',urlencodedParser,(req,res)=>{
     var randSalt = cryption.randSalt(16);
     var encrypted = cryption.encrypt(req.body.password1,randSalt);
+    console.log(models.User);
     user = new models.User({
         username:req.body.username,
         password:encrypted,

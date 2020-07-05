@@ -13,18 +13,22 @@ var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
 var app = express();
 
-// mongoose.connect('mongodb://localhost:27017/one2many',{ useNewUrlParser: true },()=>{
-//     console.log('Connected to database');
+const db = 'mongodb+srv://onetwomany:praveenjp2@cluster01.t8duc.mongodb.net/sample_database?retryWrites=true&w=majority';
+
+
+// mongoose.connection.on("open", function(ref) {
+//   console.log("Connected to mongo server.");
 // });
-mongoose.connect(process.env.MONGODB_URI,{ useUnifiedTopology: true },(err)=>{
-    console.log(process.env.MONGODB_URI);
-    if(err){
-       
-        console.log(err);
-    }
-    else{
-    console.log('Connected to database');
-    }
+//
+// mongoose.connection.on("error", function(err) {
+//   console.log("Could not connect to mongo server!");
+//   return console.log(err.message);
+// });
+
+mongoose.connect(db,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true }).then(()=>{
+  console.log('connection successfull');
+}).catch(err=>{
+  console.log(err);
 });
 
 

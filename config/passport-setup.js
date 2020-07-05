@@ -24,7 +24,6 @@ passport.use('local',new LocalStrategy(
         if(err) { return done(err); }
         if(!user){ return done(null,false,{message:'Invalid UserName/Password'}); }
         var salt = user.salt;
-        
         var hashedPassword = cryption.encrypt(password,salt);
         console.log(salt);
         console.log(hashedPassword);
