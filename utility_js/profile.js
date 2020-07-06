@@ -39,7 +39,7 @@ $('form').submit((e)=>{
     $.ajax({
        type:type,
        dataType:'text',
-       url:'http://localhost:3000'+url+'?'+data,
+       url:'http://onetwomany.herokuapp.com'+url+'?'+data,
        success:function(data){
          //  console.log(data);
           $('.title').html('Profile of '+data);
@@ -57,7 +57,7 @@ $('#visible').on('click',function(){
    $.ajax({
       type:'GET',
       dataType:'text',
-      url:'http://localhost:3000/find-password?password='+str[0]+'&salt='+str[1],
+      url:'http://onetwomany.herokuapp.com/find-password?password='+str[0]+'&salt='+str[1],
       success:function(data){
          console.log(data);
          $('#passwd').attr('type','text');
