@@ -7,7 +7,7 @@ $('#form').submit((e)=>{
     $.ajax({
         type:type,
         dataType:'text',
-        url:'http://localhost:3000'+url+'?'+data,
+        url:'http://onetwomany.herokuapp.com'+url+'?'+data,
         success:function(data){
             console.log(data);
             

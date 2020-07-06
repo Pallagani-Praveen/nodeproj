@@ -86,8 +86,9 @@
              <% } %> 
                 </div>
              <% } %>  
-        
+        <% if(user) { %>
         <span id="new-btn" class="px-2 py-2 btn btn-primary" data-toggle="modal" data-target="#newEnvelop"> New </span>
+        <% } %>
         <%- include('partials/scripts')  %> 
         <script src="/utility_js/home.js"></script>
    
