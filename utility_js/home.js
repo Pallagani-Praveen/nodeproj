@@ -64,7 +64,7 @@ $('.open_envelop').on('click',function(){
     $.ajax({
         type: 'GET',
         dataType: 'json',
-        url: 'http://localhost:3000/api-data?_id='+ObjectId,
+        url: 'http://onetwomany.herokuapp.com/api-data?_id='+ObjectId,
         success: function(result) {
         $.alert({
             title: 'Envelop opened',
