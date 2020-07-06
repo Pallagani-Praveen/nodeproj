@@ -13,7 +13,8 @@ var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
 var app = express();
 
-const db = process.env.MONGODB_URI;
+// const db = process.env.MONGODB_URI;
+const db = 'mongodb+srv://onetwomany:praveenjp2@cluster01.t8duc.mongodb.net/sample_database?retryWrites=true&w=majority';
 
 
 mongoose.connect(db,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true }).then(()=>{
@@ -95,6 +96,11 @@ app.post('/contact',urlencodedParser,(req,res)=>{
         }
     });
     
+});
+
+
+app.get('/about',(req,res)=>{
+    res.render('about');
 });
 
 
