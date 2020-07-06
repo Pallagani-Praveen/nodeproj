@@ -3,6 +3,10 @@ body{
     padding: 0;
 }
 
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px green;
+}
 .box{
     border: 2px solid green;
     margin: 10px;
