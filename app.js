@@ -77,23 +77,12 @@ app.post('/contact',urlencodedParser,(req,res)=>{
         message:req.body.message
     });
     contact.save((err)=>{
-        if(!err){
-            mailSender(req.user.username,req.body.name,req.body.email,req.body.subject,req.body.message,(err,info)=>{
-                if(err){
-                    req.session.messages = ['request backup to database'];
-                    res.redirect('/');
-                }
-                else{
-                    req.session.messages =[]; 
-                res.redirect('/');
-                }
-            });
-            
-        }
-        else{
+        
+        if(err){
             req.session.messages = ['Form Submission Failed'];
-            res.redirect('/');
         }
+        res.redirect('/');
+        
     });
     
 });
