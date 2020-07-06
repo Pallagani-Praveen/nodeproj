@@ -13,17 +13,8 @@ var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
 var app = express();
 
-const db = 'mongodb+srv://onetwomany:praveenjp2@cluster01.t8duc.mongodb.net/sample_database?retryWrites=true&w=majority';
+const db = process.env.MONGODB_URI;
 
-
-// mongoose.connection.on("open", function(ref) {
-//   console.log("Connected to mongo server.");
-// });
-//
-// mongoose.connection.on("error", function(err) {
-//   console.log("Could not connect to mongo server!");
-//   return console.log(err.message);
-// });
 
 mongoose.connect(db,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true }).then(()=>{
   console.log('connection successfull');
@@ -35,7 +26,7 @@ mongoose.connect(db,{ useNewUrlParser: true, useUnifiedTopology: true,useCreateI
 
 app.use(cookieSession({
     maxAge:24*60*60*1000,
-    keys:['thisismykey']
+    keys:[process.env.COOKIE_KEY]
 }));
 
 app.set('view engine','ejs');
