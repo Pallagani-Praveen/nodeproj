@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 var ObjectId =  require('mongodb').ObjectID;
 const authRoutes = require('./routes/auth-routes');
 const models = require('./models/user-model');
-const mailSender  = require('./mail/mailSender');
 const protectprofile  =  require('./utility_js/middleware/protectprofile');
 var urlencodedParser = bodyparser.urlencoded({extended:false});
 const cryption = require('./utility_js/cryption');
